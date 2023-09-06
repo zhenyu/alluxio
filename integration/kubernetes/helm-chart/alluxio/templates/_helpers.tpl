@@ -426,6 +426,9 @@ Extra volumes that can be added to a pod
     {{- if $vol.configMap.name }}
     name: {{ $vol.configMap.name }}
     {{- end}}
+  {{- else if $vol.hostPath}}
+  hostPath:
+    path: {{ $vol.hostPath.path }}
   {{- else }}
   emptyDir: {{ $vol.emptyDir | default "{}" }}
   {{- end }}
